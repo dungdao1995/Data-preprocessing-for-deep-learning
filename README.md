@@ -36,8 +36,8 @@
 
 ## Data pipeline
 - Read paths
-- *SHUFFLE* with buffer size
+- **SHUFFLE** with buffer size
 - **MAP(augmentation)** with train dataset, **MAP(normal_process)** with validation and test dataset
 - **Cache(Optional)**
-- **Batching** with batch_size
+- **Batching** with batch_size, repeat
 - **Prefetch**
