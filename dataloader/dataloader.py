@@ -78,12 +78,12 @@ class DataLoader:
             ds = ds.map(lambda ds: DataLoader._f(ds,class_names, image_size, rng),
                         num_parallel_calls=AUTOTUNE)
             # Batch all datasets.
-            ds = ds.batch(batch_size)
+            ds = ds.batch(batch_size).repeat()
         else:
             ds = ds.map(lambda ds: DataLoader._process_path(ds,class_names,image_size),
                         num_parallel_calls=AUTOTUNE)
             # Batch all datasets.
-            ds = ds.batch(batch_size)
+            ds = ds.batch(batch_size).repeat()
 
         # Use buffered prefetching on all datasets.
         return ds.prefetch(buffer_size=AUTOTUNE)
